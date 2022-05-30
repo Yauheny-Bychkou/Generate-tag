@@ -5,6 +5,7 @@ class ComponentForCreateTag {
   wrapperMain = document.createElement('div');
   wrapperForCreatePanel = document.createElement('div');
   wrapperForTableTag = document.createElement('div');
+  wrapperForTags = document.createElement('div');
   wrapperForReadOnlyPanel = document.createElement('div');
   overlayForTableTag = document.createElement('div');
   spanReadOnly = document.createElement('span');
@@ -49,7 +50,7 @@ class ComponentForCreateTag {
   }
 
   appendElements() {
-    this.wrapperForTableTag.append(this.titleTableTag, this.overlayForTableTag);
+    this.wrapperForTableTag.append(this.titleTableTag, this.wrapperForTags, this.overlayForTableTag);
     this.wrapperForCreatePanel.append(this.inputNameTag.element, this.buttonAdd.element);
     this.wrapperForReadOnlyPanel.append(this.inputCheckbox.element, this.spanReadOnly);
     this.wrapperMain.append(

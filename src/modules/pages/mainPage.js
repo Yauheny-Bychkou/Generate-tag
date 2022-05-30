@@ -40,9 +40,10 @@ class MainPage {
         this.arrayTagsForSet = [];
         this.componentForSetTag.listTags.innerHTML = EMPTY_STRING;
         this.componentForSetTag.titleSet.classList.remove(NONE_CLASSNAME);
-        this.componentForCreateTag.wrapperForTableTag.innerHTML = EMPTY_STRING;
+        this.componentForCreateTag.wrapperForTags.innerHTML = EMPTY_STRING;
+        this.componentForCreateTag.titleTableTag.classList.add(NONE_CLASSNAME);
         this.arrayTags.forEach((tag) => {
-          this.componentForCreateTag.wrapperForTableTag.append(new Tag(tag).element);
+          this.componentForCreateTag.wrapperForTags.append(new Tag(tag).element);
         });
       }
     });
@@ -53,7 +54,6 @@ class MainPage {
       if (this.componentForSetTag.inputAdd.element.value.length !== MIN_LENGTH) {
         this.arrayTagsForSet.push(this.componentForSetTag.inputAdd.element.value);
         this.componentForSetTag.inputAdd.element.value = EMPTY_STRING;
-        console.log(this.componentForSetTag.listTags);
         this.componentForSetTag.renderTags(this.arrayTagsForSet);
         this.componentForSetTag.titleSet.classList.add(NONE_CLASSNAME);
       }
@@ -114,7 +114,7 @@ class MainPage {
     this.componentForCreateTag.addTag(() => {
       if (this.componentForCreateTag.inputNameTag.element.value.length !== MIN_LENGTH) {
         this.arrayTags.push(this.componentForCreateTag.inputNameTag.element.value);
-        this.componentForCreateTag.wrapperForTableTag.append(
+        this.componentForCreateTag.wrapperForTags.append(
           new Tag(this.componentForCreateTag.inputNameTag.element.value).element
         );
         this.componentForCreateTag.inputNameTag.element.value = EMPTY_STRING;
@@ -134,7 +134,7 @@ class MainPage {
           }
         }
         e.target.parentNode.remove();
-        if (this.componentForCreateTag.wrapperForTableTag.children.length === MIN_LENGTH_ELEMENTS) {
+        if (this.componentForCreateTag.wrapperForTags.children.length === MIN_LENGTH) {
           this.componentForCreateTag.titleTableTag.classList.remove(NONE_CLASSNAME);
         }
       }
